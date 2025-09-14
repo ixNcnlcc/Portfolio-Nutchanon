@@ -4,6 +4,16 @@
   --color-primary: #000957;
   --color-secondary: #FFEB00;
 }
+/* Global overflow control */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+* {
+  box-sizing: border-box !important;
+}
 
 @variant dark (.dark &);
 

@@ -217,7 +217,7 @@ onUnmounted(() => {
 <template>
   <section
     data-aos="fade-up"
-    class="relative min-h-screen flex items-center justify-center overflow-hidden"
+    class="relative min-h-screen flex items-center justify-center overflow-hidden overflow-x-hidden"
   >
     <!-- Background Elements -->
     <div class="absolute inset-0 overflow-hidden">
@@ -280,7 +280,7 @@ onUnmounted(() => {
             >
               <!-- Slider Container -->
               <div 
-                class="flex transition-transform duration-500 ease-in-out"
+                class="flex transition-transform duration-500 ease-in-out overflow-x-hidden"
                 :class="{ 'transition-none': isDragging }"
                 :style="{ 
                   transform: `translateX(-${currentDescriptionIndex * 100}%)`,

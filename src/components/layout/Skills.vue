@@ -260,7 +260,7 @@ onUnmounted(() => {
               <!-- Title -->
               <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
                 {{ skill.name }}
-              </h3>
+            </h3>
               
               <!-- Description -->
               <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">
@@ -283,7 +283,7 @@ onUnmounted(() => {
             />
           </div>
         </div>
-      </div>
+        </div>
     </div>
   </section>
 </template>

@@ -13,7 +13,7 @@ const Footer = defineAsyncComponent(() => import('./components/layout/Footer.vue
 </script>
 
 <template>
-  <div class="bg-[#acdcf9] dark:bg-[#1f1848] min-h-screen">
+  <div class="bg-[#acdcf9] dark:bg-[#1f1848] min-h-screen overflow-x-hidden">
     <Navbar />
     <HeroSection />
     <Counter />
@@ -26,6 +26,15 @@ const Footer = defineAsyncComponent(() => import('./components/layout/Footer.vue
   </div>
 </template>
 
-<style >
-  
+<style>
+/* Global overflow control */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+* {
+  box-sizing: border-box !important;
+}
 </style>

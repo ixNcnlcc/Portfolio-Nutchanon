@@ -217,6 +217,6 @@ onUnmounted(() => {
           <Experience />
         </div>
       </div>
-    </div>
-  </section>
+        </div>
+    </section>
 </template>
