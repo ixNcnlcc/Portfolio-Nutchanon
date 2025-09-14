@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000957;
+  --color-secondary: #FFEB00;
+}
+
+@variant dark (.dark &);
+
+@utility stroke-text {
+  --tw-text-opacity: 1;
+  -webkit-text-stroke-width: 1.4px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: theme(colors.secondary);
+}
+
+@utility text-stroke-primary {
+  -webkit-text-stroke-color: theme(colors.primary);
+}
+
+@utility text-stroke-secondary {
+  -webkit-text-stroke-color: theme(colors.secondary);
+}
