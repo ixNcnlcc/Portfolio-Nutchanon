@@ -80,6 +80,12 @@ const nextDescriptionSlide = () => {
   currentDescriptionIndex.value = (currentDescriptionIndex.value + 1) % descriptionSlides.value.length;
 };
 
+const prevDescriptionSlide = () => {
+  currentDescriptionIndex.value = currentDescriptionIndex.value === 0 
+    ? descriptionSlides.value.length - 1 
+    : currentDescriptionIndex.value - 1;
+};
+
 const goToDescriptionSlide = (index) => {
   currentDescriptionIndex.value = index;
 };
@@ -279,29 +285,31 @@ onUnmounted(() => {
               @touchend="handleEnd"
             >
               <!-- Slider Container -->
-              <div 
-                class="flex transition-transform duration-500 ease-in-out overflow-x-hidden"
-                :class="{ 'transition-none': isDragging }"
-                :style="{ 
-                  transform: `translateX(-${currentDescriptionIndex * 100}%)`,
-                  userSelect: 'none'
-                }"
-              >
+              <div class="relative overflow-hidden rounded-xl group">
                 <div 
-                  v-for="slide in descriptionSlides"
-                  :key="slide.id"
-                  class="w-full flex-shrink-0"
+                  class="flex transition-transform duration-500 ease-in-out"
+                  :class="{ 'transition-none': isDragging }"
+                  :style="{ 
+                    transform: `translateX(-${currentDescriptionIndex * 100}%)`,
+                    userSelect: 'none'
+                  }"
                 >
                   <div 
-                    :class="`${slide.bgColor} backdrop-blur-sm rounded-xl p-4 border ${slide.borderColor}`"
+                    v-for="slide in descriptionSlides"
+                    :key="slide.id"
+                    class="w-full flex-shrink-0 px-2"
                   >
-                    <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-2 flex items-center">
-                      <Icon :icon="slide.icon" :class="`${slide.iconColor} mr-2 text-sm`" />
-                      {{ slide.title }}
-                    </h3>
-                    <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
-                      {{ slide.content }}
-                    </p>
+                    <div 
+                      :class="`${slide.bgColor} backdrop-blur-sm rounded-xl p-4 border ${slide.borderColor}`"
+                    >
+                      <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-2 flex items-center">
+                        <Icon :icon="slide.icon" :class="`${slide.iconColor} mr-2 text-sm`" />
+                        {{ slide.title }}
+                      </h3>
+                      <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                        {{ slide.content }}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
