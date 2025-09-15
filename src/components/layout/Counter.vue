@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import CountUp from "vue-countup-v3";
 
 // Constants
-const OBSERVER_THRESHOLD = 0.3;
+const OBSERVER_THRESHOLD = 0.1; // Lower threshold for mobile
 
 // Stats data with enhanced properties
 const stats = ref([
@@ -71,7 +71,10 @@ const setupObserver = () => {
         observer?.disconnect();
             }
         },
-    { threshold: OBSERVER_THRESHOLD }
+    { 
+      threshold: OBSERVER_THRESHOLD,
+      rootMargin: '0px 0px -50px 0px' // Trigger earlier on mobile
+    }
     );
 
   if (statsSection.value) {
@@ -208,6 +211,7 @@ onUnmounted(() => {
                     :duration="2.5"
                     :delay="0.2"
                   />
+                  <span v-else class="text-5xl lg:text-6xl font-black">{{ stat.number }}</span>
                 </span>
                 <span class="text-3xl lg:text-4xl font-bold text-slate-600 dark:text-slate-400 group-hover:text-blue-500 transition-colors duration-500">
                   {{ stat.suffix }}

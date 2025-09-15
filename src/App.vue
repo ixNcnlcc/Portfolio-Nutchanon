@@ -37,4 +37,25 @@ html, body {
 * {
   box-sizing: border-box !important;
 }
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile */
+  .animate-pulse {
+    animation-duration: 3s !important;
+  }
+  
+  .animate-ping {
+    animation-duration: 2s !important;
+  }
+  
+  /* Optimize transforms */
+  .group:hover .group-hover\\:scale-110 {
+    transform: scale(1.05) !important;
+  }
+  
+  .group:hover .group-hover\\:scale-105 {
+    transform: scale(1.02) !important;
+  }
+}
 </style>

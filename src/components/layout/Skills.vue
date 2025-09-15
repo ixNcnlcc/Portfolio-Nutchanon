@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import CountUp from "vue-countup-v3";
 
 // Constants
-const OBSERVER_THRESHOLD = 0.3;
+const OBSERVER_THRESHOLD = 0.1; // Lower threshold for mobile
 
 // Skills data with enhanced properties
 const skills = ref([
@@ -111,7 +111,10 @@ const setupObserver = () => {
         observer?.disconnect();
       }
     },
-    { threshold: OBSERVER_THRESHOLD }
+    { 
+      threshold: OBSERVER_THRESHOLD,
+      rootMargin: '0px 0px -50px 0px' // Trigger earlier on mobile
+    }
   );
 
   if (skillsSection.value) {
@@ -248,6 +251,7 @@ onUnmounted(() => {
                     :duration="2.5"
                     :delay="0.2"
                   />
+                  <span v-else class="text-4xl lg:text-5xl font-black">{{ skill.percentage }}</span>
                 </span>
                 <span class="text-2xl lg:text-3xl font-bold text-slate-600 dark:text-slate-400 group-hover:text-blue-500 transition-colors duration-500">
                   %
